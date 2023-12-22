@@ -18,7 +18,7 @@ class Hotel(models.Model):
     #Esta función cambia el formato de Hotel para un resultado más consistente
     def save(self, *args, **kwargs):
         self.nombreHotel = self.nombreHotel.capitalize()
-        self.direccionHotel = self.direccionHotel.capitalize()
+        self.direccionHotel = self.direccionHotel.title()
         super().save(*args, **kwargs)
         
     
@@ -42,7 +42,7 @@ class Habitacion(models.Model):
     disponibilidad = models.BooleanField('¿Esta disponible?')
     
     def __str__(self):
-        return f'{self.id}{self.idHotel}{self.habitacion}{self.capacidad}{self.precio}{self.terraza}{self.cocina}{self.disponibilidad}'
+        return f'{self.habitacion}'
 
 class Pasajero(models.Model):
     id = models.AutoField(primary_key=True)
@@ -61,7 +61,7 @@ class Pasajero(models.Model):
         super().save(*args, **kwargs)
     
     def __str__(self):
-        return f'{self.id}{self.rutClient}{self.nombreClient}{self.apellidoClient}{self.fonoClient}{self.email}{self.fecha_nacimiento}'
+        return f'{self.nombreClient} {self.apellidoClient}'
     
 class PasajeroHabitacion(models.Model):
     id = models.AutoField(primary_key=True)

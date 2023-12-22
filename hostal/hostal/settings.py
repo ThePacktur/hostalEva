@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'hostal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bdhostal',
+        'NAME': 'basehotel',
         'USER': 'root',
         'PASSWORD': '',
         "HOST": 'localhost',
